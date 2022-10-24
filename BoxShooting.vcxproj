@@ -179,12 +179,14 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="CallBacks.h" />
     <ClInclude Include="CGmath.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameDesc.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="winapi.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
