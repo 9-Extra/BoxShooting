@@ -10,13 +10,32 @@ static const DWORD WINDOW_STYLE = WS_CAPTION | WS_SYSMENU;
 static LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam) {
 	switch (Msg)
 	{
+	case WM_LBUTTONDOWN:
+	case WM_LBUTTONUP:
+	case WM_RBUTTONDOWN:
+	case WM_RBUTTONUP:
 	case WM_MOUSEMOVE: {
 		float xPos = GET_X_LPARAM(lParam) / (float)WINDOW_WIDTH;
 		float yPos = GET_Y_LPARAM(lParam) / (float)WINDOW_HEIGHT;
 		//debug_log("Mouse: %f ,%f\n", xPos, yPos);
-		bool l_button = wParam && MK_LBUTTON;
-		bool r_button = wParam && MK_RBUTTON;
+		bool l_button = wParam & MK_LBUTTON;
+		bool r_button = wParam & MK_RBUTTON;
 		MouseCallBackFunc(xPos, yPos, l_button, r_button);
+		return 0;
+	}
+
+	case WM_KEYDOWN: {
+		KeyDownCallBackFunc(wParam);
+		return 0;
+	}
+
+	case WM_KEYUP: {
+		KeyUpCallBackFunc(wParam);
+		return 0;
+	}
+	
+	case WM_KILLFOCUS: {
+		KillFocusCallBackFunc();
 		break;
 	}
 	
@@ -141,7 +160,7 @@ void Display::swap(Color* panel) {
 		SysError(NULL);
 	}
 	
-	p_context->UpdateSubresource(back_buffer, 0, NULL, panel, WINDOW_WIDTH, WINDOW_HEIGHT);
+	p_context->UpdateSubresource(back_buffer, 0, NULL, panel, WINDOW_WIDTH * sizeof(Color), WINDOW_HEIGHT * sizeof(Color));
 
 	if (FAILED(p_swapchain->Present(1, 0))) {
 		SysError(NULL);

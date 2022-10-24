@@ -7,17 +7,30 @@ class EntRoot : public Entity {
 	friend class World;
 };
 
+struct Box {
+	Vector2f p;
+	Color color;
+	int w, h;
+};
+
+struct Bullet {
+	Vector2f p;
+	Vector2f speed;
+};
+
 class World {
 private:
 	InputSystem sys_input;
-	EntRoot root;
 
 public:
-	World() {};
+	Box box{ {0.5, 0.5}, Color{255, 255, 255}, 30, 30 };
+	std::vector<Bullet> bullets;
+	float shooting_cooldown = 0.0f;
 
-	void tick(float dt) {
-		//debug_log("Time past: %f ms\n", dt);
-		root.tick(dt);
-	}
+	World() 
+	{
+	};
+
+	void tick(float dt);
 
 };

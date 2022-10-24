@@ -1,7 +1,7 @@
 #pragma once
 
 #define  NOGDICAPMASKS     
-#define  NOVIRTUALKEYCODES 
+//#define  NOVIRTUALKEYCODES 
 //#define  NOWINMESSAGES     
 //#define  NOWINSTYLES       
 #define  NOSYSMETRICS    
