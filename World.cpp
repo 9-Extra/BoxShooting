@@ -22,6 +22,8 @@ void World::tick(float dt) {
 	box.p.y = std::max<float>(0.0f, box.p.y);
 	box.p.y = std::min<float>(1.0f, box.p.y);
 
+	debug_log("Box pos: (%f, %f)\n", box.p.x, box.p.y);
+
 	const float bullet_speed = 0.01f;
 
 	for (Bullet& b : bullets) {

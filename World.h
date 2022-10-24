@@ -23,7 +23,7 @@ private:
 	InputSystem sys_input;
 
 public:
-	Box box{ {0.5, 0.5}, Color{255, 255, 255}, 30, 30 };
+	Box box{ {0.5, 0.5}, Color{255, 255, 255}, 20, 20 };
 	std::vector<Bullet> bullets;
 	float shooting_cooldown = 0.0f;
 

@@ -63,8 +63,8 @@ public:
 		int center_y = (int)(y * WINDOW_HEIGHT);
 		int x_start = std::max<int>(0, center_x - width / 2);
 		int y_start = std::max<int>(0, center_y - height / 2);
-		int x_end = std::min<int>(WINDOW_WIDTH - 1, x_start + width);
-		int y_end = std::min<int>(WINDOW_HEIGHT - 1, y_start + height);
+		int x_end = std::min<int>(WINDOW_WIDTH - 1, center_x + width / 2);
+		int y_end = std::min<int>(WINDOW_HEIGHT - 1, center_y + height / 2);
 		for (int y = y_start; y < y_end; y++) {
 			for (int x = x_start; x < x_end; x++) {
 				panel[y * WINDOW_WIDTH + x] = color;
