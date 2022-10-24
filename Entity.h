@@ -2,12 +2,12 @@
 
 #include <vector>
 
-class Element abstract {
+class Entity abstract {
 protected:
-	std::vector<Element> children;
+	std::vector<Entity> children;
 
 	virtual void tick(float dt) {
-		for (Element& e : children) {
+		for (Entity& e : children) {
 			e.tick(dt);
 		}
 	}

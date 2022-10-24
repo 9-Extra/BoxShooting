@@ -1,16 +1,16 @@
 #pragma once
 
 #include "InputSystem.h"
-#include "Element.h"
+#include "Entity.h"
 
-class ElemRoot : public Element{
+class EntRoot : public Entity {
 	friend class World;
 };
 
 class World {
 private:
 	InputSystem sys_input;
-	ElemRoot root;
+	EntRoot root;
 
 public:
 	World() {};

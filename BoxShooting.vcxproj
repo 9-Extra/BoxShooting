@@ -180,7 +180,7 @@
     <ClInclude Include="CallBacks.h" />
     <ClInclude Include="CGmath.h" />
     <ClInclude Include="Display.h" />
-    <ClInclude Include="Element.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameDesc.h" />
     <ClInclude Include="InputSystem.h" />

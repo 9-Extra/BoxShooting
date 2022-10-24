@@ -74,7 +74,7 @@
     <ClInclude Include="World.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Element.h">
+    <ClInclude Include="Entity.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
