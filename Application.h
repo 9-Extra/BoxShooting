@@ -50,7 +50,7 @@ public:
 		debug_log("Bullet count: %zu\n", world->bullets.size());
 		for (Bullet& b : world->bullets) {
 			//debug_log("%f, %f\n", b.p.x , b.p.y);
-			draw_box(b.p.x, b.p.y, 3, 3, Color(255, 255, 255));
+			draw_box(b.p.x, b.p.y, 5, 5, Color(255, 0, 0));
 		}
 
 		display.swap(panel.data());
