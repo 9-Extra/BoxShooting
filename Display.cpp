@@ -1,12 +1,25 @@
 #include "Display.h"
 
 #include "GameDesc.h"
+#include <windowsx.h>
+
+#include "CallBacks.h"
 
 static const DWORD WINDOW_STYLE = WS_CAPTION | WS_SYSMENU;
 
 static LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam) {
 	switch (Msg)
 	{
+	case WM_MOUSEMOVE: {
+		float xPos = GET_X_LPARAM(lParam) / (float)WINDOW_WIDTH;
+		float yPos = GET_Y_LPARAM(lParam) / (float)WINDOW_HEIGHT;
+		//debug_log("Mouse: %f ,%f\n", xPos, yPos);
+		bool l_button = wParam && MK_LBUTTON;
+		bool r_button = wParam && MK_RBUTTON;
+		MouseCallBackFunc(xPos, yPos, l_button, r_button);
+		break;
+	}
+	
 	case WM_CLOSE: {
 		DestroyWindow(hWnd);
 		break;

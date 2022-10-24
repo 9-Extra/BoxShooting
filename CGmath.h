@@ -12,6 +12,18 @@ struct Vector3f {
 	Vector3f(float x, float y, float z) : x(x), y(y), z(z) {}
 };
 
+struct Vector2f {
+	union {
+		struct
+		{
+			float x, y;
+		};
+		float v[2];
+	};
+	Vector2f() : x(0), y(0) {}
+	Vector2f(float x, float y) : x(x), y(y){}
+};
+
 #pragma pack(push, 1)
 struct Color {
 	union {

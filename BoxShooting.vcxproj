@@ -170,17 +170,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="CallBacks.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Entry.cpp" />
     <ClCompile Include="Error.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="CallBacks.h" />
     <ClInclude Include="CGmath.h" />
     <ClInclude Include="Display.h" />
+    <ClInclude Include="Element.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameDesc.h" />
+    <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="winapi.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

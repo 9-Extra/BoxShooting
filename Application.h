@@ -2,19 +2,27 @@
 #include "Display.h"
 
 #include "CGmath.h"
+#include "World.h"
 
 class Application {
 private:
+	using time_point = std::chrono::time_point<std::chrono::high_resolution_clock>;
+
 	Display display;
 	std::vector<Color> panel;
+	std::unique_ptr<World> world;
+	time_point last;
 public:
 	Application()
-		:panel(WINDOW_WIDTH * WINDOW_HEIGHT, Color(255,0,0)), display(WINDOW_WIDTH, WINDOW_HEIGHT)
+		:panel(WINDOW_WIDTH * WINDOW_HEIGHT, Color(255,0,0)), 
+		display(WINDOW_WIDTH, WINDOW_HEIGHT),
+		world(std::make_unique<World>())
 	{
-
 	}
 
 	int run() {
+		last = std::chrono::high_resolution_clock::now();
+
 		MSG msg;
 		while (true)
 		{
@@ -30,7 +38,11 @@ public:
 
 	void doFrame() {
 
+		time_point now = std::chrono::high_resolution_clock::now();
+		float past_time = std::chrono::duration_cast<std::chrono::duration<float, std::milli>>((now - last)).count();
+		last = now;
 
+		world->tick(past_time);
 
 		display.swap(panel.data());
 	}

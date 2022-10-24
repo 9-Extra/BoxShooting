@@ -4,7 +4,7 @@ void SysError(LPCWSTR message) {
 	DWORD error_id = GetLastError();
 	wchar_t* buffer = nullptr;
 	DWORD message_len = FormatMessageW(
-		FORMAT_MESSAGE_ALLOCATE_BUFFER,
+		FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER,
 		NULL,
 		error_id,
 		0,

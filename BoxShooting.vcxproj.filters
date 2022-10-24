@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Game">
+      <UniqueIdentifier>{a27ebb5a-3b28-45f1-8bba-489b71967b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Game">
+      <UniqueIdentifier>{bd163dc5-aa98-43df-8eb8-2acb88879a2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Graphics">
+      <UniqueIdentifier>{6ee0dc85-37d1-46d4-80b5-f968593706ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Graphics">
+      <UniqueIdentifier>{2f3eef50-fedd-44af-93b0-074cd4f04d3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Game\Content">
+      <UniqueIdentifier>{de457936-bcec-4ae8-b9e8-06a1f606c167}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -21,10 +36,13 @@
     <ClCompile Include="Error.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
+    <ClCompile Include="Application.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
+    <ClCompile Include="Display.cpp">
+      <Filter>源文件\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="CallBacks.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,17 +53,32 @@
     <ClInclude Include="Error.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CGmath.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="GameDesc.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CallBacks.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CGmath.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="World.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>头文件\Game\Content</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
