@@ -12,6 +12,15 @@ private:
 	std::vector<Color> panel;
 	std::unique_ptr<World> world;
 	time_point last;
+
+	float reset_timer() {
+		time_point now = std::chrono::high_resolution_clock::now();
+		float past_time = std::chrono::duration_cast<std::chrono::duration<float, std::milli>>((now - last)).count();
+		last = now;
+
+		return past_time;
+	}
+
 public:
 	Application()
 		:panel(WINDOW_WIDTH * WINDOW_HEIGHT, Color(255,0,0)), 
@@ -21,7 +30,7 @@ public:
 	}
 
 	int run() {
-		last = std::chrono::high_resolution_clock::now();
+		reset_timer();
 
 		MSG msg;
 		while (true)
@@ -38,11 +47,7 @@ public:
 
 	void doFrame() {
 
-		time_point now = std::chrono::high_resolution_clock::now();
-		float past_time = std::chrono::duration_cast<std::chrono::duration<float, std::milli>>((now - last)).count();
-		last = now;
-
-		world->tick(past_time);
+		world->tick(reset_timer());
 
 		display.swap(panel.data());
 	}
