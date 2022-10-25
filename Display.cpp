@@ -3,7 +3,7 @@
 #include "GameDesc.h"
 #include <windowsx.h>
 
-#include "CallBacks.h"
+#include "InputHandler.h"
 
 static const DWORD WINDOW_STYLE = WS_CAPTION | WS_SYSMENU;
 
@@ -20,22 +20,23 @@ static LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam) {
 		//debug_log("Mouse: %f ,%f\n", xPos, yPos);
 		bool l_button = wParam & MK_LBUTTON;
 		bool r_button = wParam & MK_RBUTTON;
-		MouseCallBackFunc(xPos, yPos, l_button, r_button);
+		input_handler.handle_mouse_move(xPos, yPos, l_button, r_button);
 		return 0;
 	}
 
 	case WM_KEYDOWN: {
-		KeyDownCallBackFunc(wParam);
+		input_handler.key_down(wParam);
 		return 0;
 	}
 
 	case WM_KEYUP: {
-		KeyUpCallBackFunc(wParam);
+		input_handler.key_up(wParam);
 		return 0;
 	}
 	
 	case WM_KILLFOCUS: {
-		KillFocusCallBackFunc();
+		input_handler.clear_keyboard_state();
+		input_handler.clear_mouse_state();
 		break;
 	}
 	

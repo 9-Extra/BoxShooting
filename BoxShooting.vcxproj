@@ -170,25 +170,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="CallBacks.cpp" />
+    <ClCompile Include="CooldownSystem.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Entry.cpp" />
     <ClCompile Include="Error.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="PlayerOperation.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="CallBacks.h" />
     <ClInclude Include="CGmath.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="CooldownSystem.h" />
+    <ClInclude Include="Devices.h" />
     <ClInclude Include="Display.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameDesc.h" />
-    <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="Graphics.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerOperation.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="SystemContext.h" />
     <ClInclude Include="winapi.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

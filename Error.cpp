@@ -14,9 +14,14 @@ void SysError(LPCWSTR message) {
 	);
 	wprintf(L"Get error %u (%s): %s", error_id, buffer, message != NULL ? message : L"");
 
-	MessageBoxW(NULL, message != NULL ? message : buffer, L"Error", MB_OK);
+	MessageBoxW(NULL, message != NULL ? message : buffer, L"System Error", MB_OK);
 
 	LocalFree(buffer);
 
 	ExitProcess(error_id);
+}
+
+void GameError(LPCWSTR message) {
+	MessageBoxW(NULL, message, L"Game Error", MB_OK);
+	ExitProcess(-1);
 }

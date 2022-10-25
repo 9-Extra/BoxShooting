@@ -12,3 +12,4 @@
 #endif
 
 void SysError(LPCWSTR message);
+void GameError(LPCWSTR message);
