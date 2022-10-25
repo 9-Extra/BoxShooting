@@ -25,13 +25,8 @@ template <typename T, unsigned int ID>
 class Component{
 	static_assert(ID < sizeof(ComponentBitMask) * 8, "ID too big!");
 	friend class World;
-	Component() {};//仅用于world初始化
 public:
 	T data;
-
-	Component(T data)
-		:data(data)
-	{}
 
 	constexpr static unsigned int id() {
 		return ID;
