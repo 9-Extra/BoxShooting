@@ -45,6 +45,9 @@
     <ClCompile Include="CallBacks.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winapi.h">
