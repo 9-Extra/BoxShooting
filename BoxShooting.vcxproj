@@ -181,6 +181,7 @@
     <ClCompile Include="PlayerOperation.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="StorySystem.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />

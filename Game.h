@@ -20,15 +20,7 @@ private:
 
 public:
 
-	Game(Devices devices)
-		:devices(devices),context({devices, 0.0})
-	{
-		unsigned int id = world.assign_entity_id();
-		world.cpnt_position[id].data = {0.5, 0.5};
-		world.cpnt_render[id].data = RenderDesc::Box(30, 30, Color(255, 255, 255));
-		world.cpnt_cooldown[id].data = 0.0;
-		world.entites[id].components = CpntPosition::mask() | CpntPlayer::mask() | CpntCooldown::mask() | CpntRender::mask();
-	};
+	Game(Devices devices);
 
 	void tick(float dt);
 

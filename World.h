@@ -7,6 +7,8 @@
 #include <random>
 #include "Error.h"
 
+
+
 struct Entity {
 	ComponentBitMask components;
 };
@@ -42,23 +44,10 @@ public:
 	CpntMoving cpnt_moving[ENTITY_MAX];
 	CpntCollision cpnt_collision[ENTITY_MAX];
 
-	World()
-	{
-		std::fill(entites, entites + ENTITY_MAX, Entity{EMPTY_MASK});
-		valid_id.resize(ENTITY_MAX);
+	World();
 
-		for (unsigned int i = 0; i < ENTITY_MAX; i++)
-		{
-			valid_id[i] = i;
-		}
-		
-		unsigned int seed = (unsigned int)time(NULL);
-		debug_log("Set seed: %u\n", seed);
-		state.random_engine.seed(seed);
-	}
-
-	unsigned int entity_count() const{
-		return ENTITY_MAX - (unsigned int)valid_id.size();
+	unsigned int dynamic_entity_count() const{
+		return ENTITY_MAX - ENTITY_CONSTANT_MAX - (unsigned int)valid_id.size();
 	}
 
 

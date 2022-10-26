@@ -72,6 +72,9 @@
     <ClCompile Include="StorySystem.cpp">
       <Filter>源文件\Game\System</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winapi.h">
