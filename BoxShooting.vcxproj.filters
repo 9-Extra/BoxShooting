@@ -66,6 +66,9 @@
     <ClCompile Include="MovingSystem.cpp">
       <Filter>源文件\Game\System</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionSystem.cpp">
+      <Filter>源文件\Game\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winapi.h">
@@ -120,6 +123,9 @@
       <Filter>头文件\Game\System</Filter>
     </ClInclude>
     <ClInclude Include="MovingSystem.h">
+      <Filter>头文件\Game\System</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionSystem.h">
       <Filter>头文件\Game\System</Filter>
     </ClInclude>
   </ItemGroup>

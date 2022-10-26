@@ -68,7 +68,7 @@ struct CollisionDesc {
 	};
 
 };
-using CpntCollision = Component<CollisionDesc , 2>;
+using CpntCollision = Component<CollisionDesc, 2>;
 using CpntHealth = Component<double, 3>;
 using CpntCooldown = Component<float, 4>;
 

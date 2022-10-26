@@ -32,6 +32,7 @@ public:
 	CpntRender cpnt_render[ENTITY_MAX];
 	CpntCooldown cpnt_cooldown[ENTITY_MAX];
 	CpntMoving cpnt_moving[ENTITY_MAX];
+	CpntCollision cpnt_collision[ENTITY_MAX];
 
 	World()
 	{

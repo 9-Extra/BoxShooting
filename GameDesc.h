@@ -6,3 +6,6 @@
 #define WINDOW_TITLE L"BoxShooter"
 
 #define ENTITY_MAX 1000
+
+//地图和像素大小比例
+#define MAP_RATIO 0.01f

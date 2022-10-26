@@ -10,7 +10,7 @@ void sys_player_operation(World& world, const SystemContext& context) {
 		if (mask_contain(world.entites[i].components, PLAYER_MASK)) {
 			//debug_log("Time past: %f ms\n", dt);
 			Vector2f& p = world.cpnt_position[i].data;
-			const float speed = 0.001f;
+			const float speed = 0.01f;
 			//box.p = sys_input.get_mouse_position();
 			if (sys_input.is_keydown('W')) {
 				p.y -= speed * dt;
@@ -26,9 +26,9 @@ void sys_player_operation(World& world, const SystemContext& context) {
 			}
 
 			p.x = std::max<float>(0.0f, p.x);
-			p.x = std::min<float>(1.0f, p.x);
+			p.x = std::min<float>(WINDOW_WIDTH * MAP_RATIO, p.x);
 			p.y = std::max<float>(0.0f, p.y);
-			p.y = std::min<float>(1.0f, p.y);
+			p.y = std::min<float>(WINDOW_HEIGHT * MAP_RATIO, p.y);
 
 			//debug_log("Box pos: (%f, %f)\n", p.x, p.y);
 

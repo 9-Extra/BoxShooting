@@ -170,6 +170,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="CooldownSystem.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -183,6 +184,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="CGmath.h" />
+    <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CooldownSystem.h" />
     <ClInclude Include="Devices.h" />

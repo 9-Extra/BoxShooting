@@ -4,6 +4,7 @@
 #include "RenderSystem.h"
 #include "PlayerOperation.h"
 #include "MovingSystem.h"
+#include "CollisionSystem.h"
 
 void Game::tick(float dt) {
 	context.dt = dt;
@@ -13,6 +14,8 @@ void Game::tick(float dt) {
 	sys_cooldown(world, context);
 	sys_player_operation(world, context);
 	sys_moving(world, context);
+	sys_collision(world, context);
+
 	sys_render_the_world(world, context);
 
 	world.really_destory_entities();

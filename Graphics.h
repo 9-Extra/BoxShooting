@@ -22,8 +22,8 @@ public:
 
 	void draw_box(float x, float y, int width, int height, Color color) {
 		//debug_log("Drawing box at (%f, %f)\n", x, y);
-		int center_x = (int)(x * WINDOW_WIDTH);
-		int center_y = (int)(y * WINDOW_HEIGHT);
+		int center_x = (int)(x / MAP_RATIO);
+		int center_y = (int)(y / MAP_RATIO);
 		int x_start = std::max<int>(0, center_x - width / 2);
 		int y_start = std::max<int>(0, center_y - height / 2);
 		int x_end = std::min<int>(WINDOW_WIDTH - 1, center_x + width / 2);

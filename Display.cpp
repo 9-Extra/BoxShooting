@@ -15,8 +15,8 @@ static LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam) {
 	case WM_RBUTTONDOWN:
 	case WM_RBUTTONUP:
 	case WM_MOUSEMOVE: {
-		float xPos = GET_X_LPARAM(lParam) / (float)WINDOW_WIDTH;
-		float yPos = GET_Y_LPARAM(lParam) / (float)WINDOW_HEIGHT;
+		float xPos = GET_X_LPARAM(lParam) * MAP_RATIO;
+		float yPos = GET_Y_LPARAM(lParam) * MAP_RATIO;
 		//debug_log("Mouse: %f ,%f\n", xPos, yPos);
 		bool l_button = wParam & MK_LBUTTON;
 		bool r_button = wParam & MK_RBUTTON;
