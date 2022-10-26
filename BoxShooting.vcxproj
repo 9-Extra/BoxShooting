@@ -103,7 +103,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,7 +125,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -143,7 +143,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -165,7 +165,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -180,6 +180,7 @@
     <ClCompile Include="MovingSystem.cpp" />
     <ClCompile Include="PlayerOperation.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="StorySystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerOperation.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="StorySystem.h" />
     <ClInclude Include="SystemContext.h" />
     <ClInclude Include="winapi.h" />
     <ClInclude Include="Game.h" />

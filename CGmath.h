@@ -66,6 +66,10 @@ struct Vector2f {
 		float s = Q_rsqrt(squared());
 		return Vector2f(x * s, y * s);
 	}
+
+	Vector2f rotate(float radiam) {
+		return Vector2f(x * cosf(radiam) + y * sinf(radiam), x * -sinf(radiam) + y * cosf(radiam));
+	}
 };
 
 #pragma pack(push, 1)

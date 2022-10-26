@@ -4,10 +4,17 @@
 #include "GameDesc.h"
 #include <vector>
 #include <algorithm>
+#include <random>
 #include "Error.h"
 
 struct Entity {
 	ComponentBitMask components;
+};
+
+struct WorldGlobalState {
+	std::default_random_engine random_engine;
+	float enemy_generate_cooldown = 1000.0f;
+
 };
 
 //记录所有的状态，只保存数据
@@ -27,6 +34,7 @@ private:
 
 public:
 	Entity entites[ENTITY_MAX];
+	WorldGlobalState state;
 
 	CpntPosition cpnt_position[ENTITY_MAX];
 	CpntRender cpnt_render[ENTITY_MAX];
@@ -43,6 +51,10 @@ public:
 		{
 			valid_id[i] = i;
 		}
+		
+		unsigned int seed = (unsigned int)time(NULL);
+		debug_log("Set seed: %u\n", seed);
+		state.random_engine.seed(seed);
 	}
 
 	unsigned int entity_count() const{

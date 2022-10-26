@@ -33,7 +33,7 @@ void sys_player_operation(World& world, const SystemContext& context) {
 			//debug_log("Box pos: (%f, %f)\n", p.x, p.y);
 
 			
-			const float bullet_speed = 0.01f;
+			const float bullet_speed = 0.2f;
 		
 
 			float& shooting_cooldown = world.cpnt_cooldown[i].data;
@@ -44,9 +44,10 @@ void sys_player_operation(World& world, const SystemContext& context) {
 				Vector2f speed = (sys_input.get_mouse_position() - p).normalized() * bullet_speed;
 				world.cpnt_moving[id].data = speed;
 				world.cpnt_render[id].data = RenderDesc::Box(5, 5, Color(255,0,0 ));
+				world.cpnt_collision[id].data = CollisionDesc::Box(5 * MAP_RATIO / 2, 5 * MAP_RATIO / 2, 0, 1);
 				
-				world.entites[id].components = CpntPosition::mask() | CpntMoving::mask() | CpntRender::mask();
-				shooting_cooldown = 50.0;
+				world.entites[id].components = CpntPosition::mask() | CpntMoving::mask() | CpntCollision::mask() | CpntRender::mask();
+				shooting_cooldown = 200.0;
 			}
 		}
 	}

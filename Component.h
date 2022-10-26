@@ -52,20 +52,31 @@ enum class CollsionType
 };
 
 struct CollisionDesc {
-	unsigned int mask;
+	unsigned int group_mask;//自己的mask
+	unsigned int collision_mask;//要碰的对象的mask
 	CollsionType type;
 	union {
 		struct {
-			unsigned int width;
-			unsigned int height;
+			float half_width;
+			float half_height;
 		} box_size;
 		struct {
-			unsigned int r;
+			float r;
 		} circle_size;
 		struct{
-			unsigned int width;
+			float width;
 		} line_size;
 	};
+
+	static CollisionDesc Box(float half_width, float half_height, unsigned int group_mask, unsigned int collision_mask) {
+		CollisionDesc cd;
+		cd.type = CollsionType::BOX;
+		cd.box_size.half_width = half_width;
+		cd.box_size.half_height = half_height;
+		cd.collision_mask = collision_mask;
+		cd.group_mask = group_mask;
+		return cd;
+	}
 
 };
 using CpntCollision = Component<CollisionDesc, 2>;

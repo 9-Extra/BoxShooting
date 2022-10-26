@@ -32,6 +32,7 @@ public:
 		display(WINDOW_WIDTH, WINDOW_HEIGHT),
 		game(std::make_unique<Game>(Devices{graphics, input_handler}))
 	{
+		SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_UNAWARE);
 	}
 
 	int run() {
