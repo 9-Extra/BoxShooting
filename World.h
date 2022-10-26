@@ -31,6 +31,7 @@ public:
 	CpntPosition cpnt_position[ENTITY_MAX];
 	CpntRender cpnt_render[ENTITY_MAX];
 	CpntCooldown cpnt_cooldown[ENTITY_MAX];
+	CpntMoving cpnt_moving[ENTITY_MAX];
 
 	World()
 	{
@@ -41,6 +42,10 @@ public:
 		{
 			valid_id[i] = i;
 		}
+	}
+
+	unsigned int entity_count() const{
+		return ENTITY_MAX - (unsigned int)valid_id.size();
 	}
 
 

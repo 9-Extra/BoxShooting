@@ -4,7 +4,7 @@ static const ComponentBitMask RENDER_MASK = CpntRender::mask() | CpntPosition::m
 
 void sys_render_the_world(World& world, const SystemContext& context) {
 	for (unsigned int i = 0; i < ENTITY_MAX; i++) {
-		if (world.entites[i].components & RENDER_MASK) {
+		if (mask_contain(world.entites[i].components, RENDER_MASK)) {
 			Vector2f p = world.cpnt_position[i].data;
 			RenderDesc& rd = world.cpnt_render[i].data;
 			switch (rd.type) {

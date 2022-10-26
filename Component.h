@@ -21,6 +21,10 @@
 using ComponentBitMask = unsigned long long int;
 const ComponentBitMask EMPTY_MASK = 0;
 
+inline bool mask_contain(ComponentBitMask a, ComponentBitMask b) {
+	return (a & b) == b;
+}
+
 template <typename T, unsigned int ID>
 class Component{
 	static_assert(ID < sizeof(ComponentBitMask) * 8, "ID too big!");

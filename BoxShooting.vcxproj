@@ -176,6 +176,7 @@
     <ClCompile Include="Entry.cpp" />
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="MovingSystem.cpp" />
     <ClCompile Include="PlayerOperation.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
   </ItemGroup>
@@ -190,6 +191,7 @@
     <ClInclude Include="GameDesc.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="MovingSystem.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerOperation.h" />
     <ClInclude Include="RenderSystem.h" />
