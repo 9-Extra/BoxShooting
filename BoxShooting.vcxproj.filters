@@ -75,6 +75,9 @@
     <ClCompile Include="World.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winapi.h">

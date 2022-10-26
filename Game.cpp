@@ -15,6 +15,10 @@ Game::Game(Devices devices)
 	world.cpnt_render[id].data = RenderDesc::Box(30, 30, Color(255, 255, 255));
 	world.cpnt_cooldown[id].data = 0.0;
 	world.entites[id].components = CpntPosition::mask() | CpntPlayer::mask() | CpntCooldown::mask() | CpntRender::mask();
+
+	id = ENTITY_ID_CURSOR;
+	world.cpnt_render[id].data = RenderDesc::Box(5, 5, Color(255, 255, 255));
+	world.entites[id].components = CpntRender::mask();
 };
 
 void Game::tick(float dt) {
@@ -29,6 +33,7 @@ void Game::tick(float dt) {
 	sys_collision(world, context);
 
 	sys_render_the_world(world, context);
+	sys_render_cursor(world, context);
 
 	world.really_destory_entities();
 }

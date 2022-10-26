@@ -16,24 +16,8 @@ public:
 		panel(WINDOW_WIDTH * WINDOW_HEIGHT)
 	{}
 
-	void clear(Color color) {
-		std::fill(panel.begin(), panel.end(), color);
-	}
-
-	void draw_box(float x, float y, int width, int height, Color color) {
-		//debug_log("Drawing box at (%f, %f)\n", x, y);
-		int center_x = (int)(x / MAP_RATIO);
-		int center_y = (int)(y / MAP_RATIO);
-		int x_start = std::max<int>(0, center_x - width / 2);
-		int y_start = std::max<int>(0, center_y - height / 2);
-		int x_end = std::min<int>(WINDOW_WIDTH - 1, center_x + width / 2);
-		int y_end = std::min<int>(WINDOW_HEIGHT - 1, center_y + height / 2);
-		for (int y = y_start; y < y_end; y++) {
-			for (int x = x_start; x < x_end; x++) {
-				panel[y * WINDOW_WIDTH + x] = color;
-			}
-		}
-
-	}
+	void clear(Color color);
+	void draw_point(float x, float y, Color color);
+	void draw_box(float x, float y, int width, int height, Color color);
 
 };
