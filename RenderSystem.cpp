@@ -5,7 +5,7 @@ static const ComponentBitMask RENDER_MASK = CpntRender::mask() | CpntPosition::m
 static inline void render_entity(Vector2f p, RenderDesc& rd, Graphcis& g) {
 	switch (rd.type) {
 	case RenderType::BOX: {
-		g.draw_box(p.x, p.y, rd.box_size.width, rd.box_size.height, rd.color);
+		g.draw_box(p, rd.box_size.width, rd.box_size.height, rd.color);
 		break;
 	}
 	}

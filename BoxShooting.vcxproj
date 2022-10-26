@@ -200,6 +200,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerOperation.h" />
     <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="StorySystem.h" />
     <ClInclude Include="SystemContext.h" />
     <ClInclude Include="winapi.h" />

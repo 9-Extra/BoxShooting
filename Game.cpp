@@ -7,8 +7,8 @@
 #include "CollisionSystem.h"
 #include "StorySystem.h"
 
-Game::Game(Devices devices)
-	:devices(devices), context({ devices, 0.0 })
+Game::Game(Devices devices, ResourceManager resources)
+	:context({ devices, resources, 0.0 })
 {
 	unsigned int id = ENTITY_ID_PLAYER;
 	world.cpnt_position[id].data = { 0.5, 0.5 };

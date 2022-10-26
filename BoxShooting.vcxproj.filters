@@ -140,5 +140,8 @@
     <ClInclude Include="StorySystem.h">
       <Filter>头文件\Game\System</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

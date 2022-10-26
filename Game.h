@@ -15,12 +15,11 @@
 class Game {
 private:
 	World world;
-	Devices devices;
 	SystemContext context;
 
 public:
 
-	Game(Devices devices);
+	Game(Devices devices, ResourceManager resources);
 
 	void tick(float dt);
 

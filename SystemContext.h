@@ -5,9 +5,11 @@
 
 #include "World.h"
 #include "Devices.h"
+#include "ResourceManager.h"
 
 struct SystemContext {
 	Devices devices;
+	ResourceManager resources;
 	float dt;
 };
 

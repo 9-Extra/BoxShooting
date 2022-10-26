@@ -29,10 +29,12 @@ private:
 public:
 	Application()
 		:graphics(),
-		display(WINDOW_WIDTH, WINDOW_HEIGHT),
-		game(std::make_unique<Game>(Devices{graphics, input_handler}))
+		display(WINDOW_WIDTH, WINDOW_HEIGHT)
 	{
 		SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_UNAWARE);
+		
+
+		game = std::make_unique<Game>(Devices{ graphics, input_handler }, ResourceManager{});
 	}
 
 	int run() {
