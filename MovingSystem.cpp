@@ -6,6 +6,7 @@ static const float EDGE_PAD = 5.0f;
 
 void sys_moving(World& world, const SystemContext& context)
 {
+	float dt = context.dt;
 	for (unsigned int i = 0; i < ENTITY_MAX; i++) {
 		if (mask_contain(world.entites[i].components, MOVING_MASK)) {
 			Vector2f& p = world.cpnt_position[i].data;
@@ -13,7 +14,7 @@ void sys_moving(World& world, const SystemContext& context)
 				world.destroy_entity(i);
 			}
 			else {
-				p = p + world.cpnt_moving[i].data;
+				p = p + world.cpnt_moving[i].data * dt;
 			}
 			
 		}

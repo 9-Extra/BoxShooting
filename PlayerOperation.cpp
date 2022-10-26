@@ -33,7 +33,7 @@ void sys_player_operation(World& world, const SystemContext& context) {
 			//debug_log("Box pos: (%f, %f)\n", p.x, p.y);
 
 			
-			const float bullet_speed = 0.2f;
+			const float bullet_speed = 0.03f;
 		
 
 			float& shooting_cooldown = world.cpnt_cooldown[i].data;
