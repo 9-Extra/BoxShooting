@@ -1,12 +1,12 @@
 #include "World.h"
 
 World::World() {
-	std::fill(entites, entites + ENTITY_MAX, Entity{ EMPTY_MASK });
-	valid_id.reserve(ENTITY_MAX - ENTITY_CONSTANT_MAX);
-
-	for (unsigned int i = ENTITY_CONSTANT_MAX; i < ENTITY_MAX; i++)
+	std::fill(entites, entites + ENTITY_MAX_COUNT, Entity{ EMPTY_MASK });
+	
+	valid_id_top = 0;
+	for (unsigned int i = ENTITY_CONSTANT_COUNT; i < ENTITY_MAX_COUNT; i++)
 	{
-		valid_id.push_back(i);
+		valid_id[valid_id_top++] = i;
 	}
 
 	unsigned int seed = (unsigned int)time(NULL);

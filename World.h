@@ -23,41 +23,41 @@ struct WorldGlobalState {
 class World {
 private:
 	friend class Game;
-	std::vector<unsigned int> valid_id;
+	unsigned int valid_id_top;//有效的id的个数，同时指向最后一个有效id的下一个位置
+	unsigned int valid_id[ENTITY_MAX_COUNT - ENTITY_CONSTANT_COUNT];
 
 	void really_destory_entities() {
-		for (unsigned int i = 0; i < ENTITY_MAX; i++) {
+		for (unsigned int i = 0; i < ENTITY_MAX_COUNT; i++) {
 			if (entites[i].components & CpntDestroying::mask()) {
 				entites[i].components = EMPTY_MASK;
-				valid_id.push_back(i);
+				valid_id[valid_id_top++] = i;
 			}
 		}
 	}
 
 public:
-	Entity entites[ENTITY_MAX];
+	Entity entites[ENTITY_MAX_COUNT];
 	WorldGlobalState state;
 
-	CpntPosition cpnt_position[ENTITY_MAX];
-	CpntRender cpnt_render[ENTITY_MAX];
-	CpntCooldown cpnt_cooldown[ENTITY_MAX];
-	CpntMoving cpnt_moving[ENTITY_MAX];
-	CpntCollision cpnt_collision[ENTITY_MAX];
+	CpntPosition cpnt_position[ENTITY_MAX_COUNT];
+	CpntRender cpnt_render[ENTITY_MAX_COUNT];
+	CpntCooldown cpnt_cooldown[ENTITY_MAX_COUNT];
+	CpntMoving cpnt_moving[ENTITY_MAX_COUNT];
+	CpntCollision cpnt_collision[ENTITY_MAX_COUNT];
 
 	World();
 
 	unsigned int dynamic_entity_count() const{
-		return ENTITY_MAX - ENTITY_CONSTANT_MAX - (unsigned int)valid_id.size();
+		return ENTITY_MAX_COUNT - ENTITY_CONSTANT_COUNT - valid_id_top;
 	}
 
 
 	unsigned int assign_entity_id() {
-		if (valid_id.empty()) {
+		if (valid_id_top == 0) {
 			GameError(L"实体数量超过上限");
 		}
-		unsigned int id = valid_id.back();
-		valid_id.pop_back();
-		return id;
+		--valid_id_top;
+		return valid_id[valid_id_top];
 	}
 	
 	//仅仅进行记录，真正的回收交给game

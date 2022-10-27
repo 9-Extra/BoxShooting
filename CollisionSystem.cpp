@@ -3,11 +3,11 @@
 static const ComponentBitMask COLLISION_MASK = CpntCollision::mask() | CpntPosition::mask();
 
 void sys_collision(World& world, const SystemContext& context) {
-	for (unsigned int i = 0; i < ENTITY_MAX; i++) {
+	for (unsigned int i = 0; i < ENTITY_MAX_COUNT; i++) {
 		if (mask_contain(world.entites[i].components, COLLISION_MASK)) {
 			CollisionDesc c_a = world.cpnt_collision[i].data;
 			Vector2f p_a = world.cpnt_position[i].data;
-			for (unsigned int j = i + 1; j < ENTITY_MAX; j++) {
+			for (unsigned int j = i + 1; j < ENTITY_MAX_COUNT; j++) {
 				if (mask_contain(world.entites[j].components, COLLISION_MASK))
 				{
 					CollisionDesc c_b = world.cpnt_collision[j].data;
