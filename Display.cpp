@@ -150,6 +150,7 @@ Display::Display(unsigned int width, unsigned int height)
 		SysError(L"Failed to create device");
 	}
 
+	ShowCursor(false);
 	ShowWindow(hwnd, SW_SHOW);
 }
 
