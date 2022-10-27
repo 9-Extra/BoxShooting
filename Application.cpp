@@ -4,8 +4,9 @@ void Application::load_resources() {
 	// The factory pointer
 	ImageLoader image_loader;
 
-	image_loader.load_image(L"resources\\cursor.png", resources.textures[0]);
+	image_loader.load_image(L"resources\\texture\\cursor.png", resources.textures[0]);
 
+	sound_device.load_sound(L"resources\\sound\\finished.wav", resources.sounds[0]);
 }
 
 Application::Application()

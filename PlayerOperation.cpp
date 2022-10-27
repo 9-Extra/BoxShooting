@@ -48,6 +48,9 @@ void sys_player_operation(World& world, const SystemContext& context) {
 			world.cpnt_collision[id].data = CollisionDesc::Box(5 * MAP_RATIO / 2, 5 * MAP_RATIO / 2, 0, 1);
 
 			world.entites[id].components = CpntPosition::mask() | CpntMoving::mask() | CpntCollision::mask() | CpntRender::mask();
+
+			context.resources.sounds[0].play_once();
+
 			shooting_cooldown = 200.0;
 		}
 	}

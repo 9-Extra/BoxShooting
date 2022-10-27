@@ -1,7 +1,6 @@
+#include "Application.h"
 #include "winapi.h"
 #include "Error.h"
-
-#include "Application.h"
 
 #ifdef NDEBUG
 int WINAPI wWinMain(HINSTANCE , HINSTANCE , PWSTR , int )

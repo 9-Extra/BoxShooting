@@ -1,4 +1,5 @@
 #pragma once
+#include "Sound.h"
 #include "Graphics.h"
 
 /*
@@ -12,7 +13,6 @@
 
 struct ResourceManager {
 	Texture textures[RES_TEXTURE_MAX];
-
-
+	Sound sounds[RES_SOUND_MAX];
 
 };

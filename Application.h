@@ -1,10 +1,12 @@
 #pragma once
+#include "ImageLoader.h"
+#include "SoundDevice.h"
 #include "Display.h"
 
 #include "CGmath.h"
 #include "Game.h"
 #include "Graphics.h"
-#include "ImageLoader.h"
+
 
 /*
 * 代表整个程序的逻辑
@@ -16,6 +18,7 @@ private:
 
 	Display display;
 	Graphcis graphics;
+	SoundDevice sound_device;
 
 	ResourceManager resources;
 
