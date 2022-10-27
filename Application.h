@@ -4,8 +4,7 @@
 #include "CGmath.h"
 #include "Game.h"
 #include "Graphics.h"
-
-#include "wincodec.h"
+#include "ImageLoader.h"
 
 /*
 * 代表整个程序的逻辑

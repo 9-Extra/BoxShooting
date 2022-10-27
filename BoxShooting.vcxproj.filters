@@ -34,6 +34,12 @@
     <Filter Include="源文件\Game\System">
       <UniqueIdentifier>{77bc02b3-e85a-4dd4-acb7-090001772af5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Tools">
+      <UniqueIdentifier>{1fd82d4a-a24f-4778-9f7e-23a37a0cd521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Tools">
+      <UniqueIdentifier>{7fb8fe32-f215-45fd-8e20-1fa228886ef3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -77,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>源文件\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
+      <Filter>头文件\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
