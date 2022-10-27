@@ -8,8 +8,8 @@
 #include "ResourceManager.h"
 
 struct SystemContext {
-	Devices devices;
-	ResourceManager resources;
+	const Devices devices;
+	const ResourceManager& resources;
 	float dt;
 };
 

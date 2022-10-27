@@ -10,6 +10,9 @@ int main()
 #endif
 {
 	debug_log("Start!\n");
+
+	CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+
 	Application app;
 
 	debug_log("App initalized!\n");

@@ -87,7 +87,8 @@ enum class RenderType
 {
 	BOX,
 	LINE,
-	POINT
+	POINT,
+	TEXTURED_BOX
 };
 
 struct RenderDesc {
@@ -96,21 +97,38 @@ struct RenderDesc {
 		struct {
 			unsigned int width;
 			unsigned int height;
-		} box_size;
+			Color color;
+		} box;
 		struct {
 			unsigned int r;
-		} circle_size;
+			Color color;
+		} circle;
 		struct {
 			unsigned int width;
-		} line_size;
+			Color color;
+		} line;
+		struct {
+			unsigned int texture_id;
+		} textured_box;
 	};
-	Color color;
 
+	RenderDesc() {}
+	
 	static RenderDesc Box(unsigned int width, unsigned int height, Color color) {
 		RenderDesc rd;
+	
 		rd.type = RenderType::BOX;
-		rd.box_size = { .width = width, .height = height };
-		rd.color = color;
+		rd.box = { .width = width, .height = height, .color = color };
+		
+		return rd;
+	};
+
+	static RenderDesc Textured_box(unsigned int id) {
+		RenderDesc rd;
+
+		rd.type = RenderType::TEXTURED_BOX;
+		rd.textured_box.texture_id = id;
+
 		return rd;
 	};
 };

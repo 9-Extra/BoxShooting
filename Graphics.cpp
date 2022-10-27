@@ -34,6 +34,11 @@ void Graphcis::draw_texture_upleft(Vector2f p, const Texture& texture) {
 }
 
 void Graphcis::draw_texture_center(Vector2f p, const Texture& texture) {
+#ifndef NDEBUG
+	if (texture.pixels.size() == 0) {
+		GameError(L"Use unloaded texture");
+	}
+#endif // !NDEBUG
 	unsigned int width = texture.width;
 	unsigned int height = texture.height;
 	int center_x = (int)(p.x / MAP_RATIO);
@@ -47,7 +52,10 @@ void Graphcis::draw_texture_center(Vector2f p, const Texture& texture) {
 			int tar_x = tar_x_start + x;
 			int tar_y = tar_y_start + y;
 			if (tar_x >= 0 && tar_x < WINDOW_WIDTH && tar_y >= 0 && tar_y < WINDOW_HEIGHT) {
-				panel[tar_y * WINDOW_WIDTH + tar_x] = texture.pixels[y * width + x];
+				Color pixel = texture.pixels[y * width + x];
+				if (pixel.a != 0) {
+					panel[tar_y * WINDOW_WIDTH + tar_x] = pixel;
+				}
 			}
 	
 		}

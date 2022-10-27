@@ -4,6 +4,7 @@
 #include "CGmath.h"
 #include "GameDesc.h"
 #include <algorithm>
+#include "Error.h"
 
 struct Texture {
 	std::vector<Color> pixels;

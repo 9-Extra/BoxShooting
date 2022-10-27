@@ -19,7 +19,7 @@ private:
 
 public:
 
-	Game(Devices devices, ResourceManager resources);
+	Game(const Devices devices, const ResourceManager& resources);
 
 	void tick(float dt);
 

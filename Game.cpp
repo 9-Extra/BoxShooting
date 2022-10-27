@@ -7,7 +7,7 @@
 #include "CollisionSystem.h"
 #include "StorySystem.h"
 
-Game::Game(Devices devices, ResourceManager resources)
+Game::Game(const Devices devices, const ResourceManager& resources)
 	:context({ devices, resources, 0.0 })
 {
 	unsigned int id = ENTITY_ID_PLAYER;
@@ -17,7 +17,7 @@ Game::Game(Devices devices, ResourceManager resources)
 	world.entites[id].components = CpntPosition::mask() | CpntPlayer::mask() | CpntCooldown::mask() | CpntRender::mask();
 
 	id = ENTITY_ID_CURSOR;
-	world.cpnt_render[id].data = RenderDesc::Box(5, 5, Color(255, 255, 255));
+	world.cpnt_render[id].data = RenderDesc::Textured_box(0);
 	world.entites[id].components = CpntRender::mask();
 };
 
