@@ -1,20 +1,17 @@
 #pragma once
 #include "ImageLoader.h"
-#include "SoundDevice.h"
 #include "Display.h"
 
 #include "CGmath.h"
 #include "Game.h"
-#include "Graphics.h"
-
 
 /*
 * 代表整个程序的逻辑
 * 持有底层资源，将资源的引用传给上层以供使用
 */
 class Application {
-private:
 	using time_point = std::chrono::time_point<std::chrono::high_resolution_clock>;
+private:
 
 	Display display;
 	Graphcis graphics;

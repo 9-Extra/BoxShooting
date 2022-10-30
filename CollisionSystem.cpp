@@ -22,6 +22,7 @@ void sys_collision(World& world, const SystemContext& context) {
 							{
 								world.destroy_entity(i);
 								world.destroy_entity(j);
+								context.devices.sound_device.play_once(context.resources.sounds[1]);
 							}
 						}
 						else {

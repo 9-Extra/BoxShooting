@@ -36,22 +36,29 @@ void sys_player_operation(World& world, const SystemContext& context) {
 
 		const float bullet_speed = 0.03f;
 
-
+		static float shooting_delay = 200.0f;
 		float& shooting_cooldown = world.cpnt_cooldown[i].data;
 		if (sys_input.is_left_button_down() && shooting_cooldown < 0.0f) {
-			//bullets.emplace_back(Bullet{ box.p, (sys_input.get_mouse_position() - box.p).normalized() * bullet_speed });
-			unsigned int id = world.assign_entity_id();
-			world.cpnt_position[id].data = p;
-			Vector2f speed = (sys_input.get_mouse_position() - p).normalized() * bullet_speed;
-			world.cpnt_moving[id].data = speed;
-			world.cpnt_render[id].data = RenderDesc::Box(5, 5, Color(255, 0, 0));
-			world.cpnt_collision[id].data = CollisionDesc::Box(5 * MAP_RATIO / 2, 5 * MAP_RATIO / 2, 0, 1);
+			if (shooting_delay < 0.0f) {
+				unsigned int id = world.assign_entity_id();
+				world.cpnt_position[id].data = p;
+				Vector2f speed = (sys_input.get_mouse_position() - p).normalized() * bullet_speed;
+				world.cpnt_moving[id].data = speed;
+				world.cpnt_render[id].data = RenderDesc::Box(5, 5, Color(255, 0, 0));
+				world.cpnt_collision[id].data = CollisionDesc::Box(5 * MAP_RATIO / 2, 5 * MAP_RATIO / 2, 0, 1);
 
-			world.entites[id].components = CpntPosition::mask() | CpntMoving::mask() | CpntCollision::mask() | CpntRender::mask();
+				world.entites[id].components = CpntPosition::mask() | CpntMoving::mask() | CpntCollision::mask() | CpntRender::mask();
 
-			context.resources.sounds[0].play_once();
+				context.devices.sound_device.play_once(context.resources.sounds[0]);
 
-			shooting_cooldown = 200.0;
+				shooting_cooldown = 500.0;
+			}
+			else {
+				shooting_delay -= dt;
+			}
+		}
+		else {
+			shooting_delay = 200.0f;
 		}
 	}
 }

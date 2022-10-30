@@ -1,12 +1,13 @@
 #include "Application.h"
 
 void Application::load_resources() {
-	// The factory pointer
-	ImageLoader image_loader;
 
+	sound_device.load_sound(L"resources\\sound\\shooting.wav", resources.sounds[0]);
+	sound_device.load_sound(L"resources\\sound\\enemy_dead.wav", resources.sounds[1]);
+
+	ImageLoader image_loader;
 	image_loader.load_image(L"resources\\texture\\cursor.png", resources.textures[0]);
 
-	sound_device.load_sound(L"resources\\sound\\finished.wav", resources.sounds[0]);
 }
 
 Application::Application()
@@ -17,7 +18,7 @@ Application::Application()
 
 	load_resources();
 
-	game = std::make_unique<Game>(Devices{ graphics, input_handler }, resources);
+	game = std::make_unique<Game>(Devices{ graphics, sound_device,input_handler }, resources);
 }
 
 int Application::run() {

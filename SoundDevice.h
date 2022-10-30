@@ -4,26 +4,33 @@
 #include "Error.h"
 #include "Sound.h"
 
-struct SoundHolder {
-    XAUDIO2_BUFFER buffer = { 0 };
-    std::unique_ptr <BYTE[]> sound_buffer;
-};
+#define SOUND_SOURCE_COUNT 32
 
 class SoundDevice {
 private:
     winrt::com_ptr<IXAudio2> pXAudio2;
-    std::vector<SoundHolder> loaded_sounds;
+    IXAudio2SourceVoice* source_voice_pool[SOUND_SOURCE_COUNT];
 public:
 
-    SoundDevice() {
-        if (FAILED(XAudio2Create(pXAudio2.put(), 0, XAUDIO2_DEFAULT_PROCESSOR))) {
-            SysError(L"Failed to create IXAudio2");
-        }
-        IXAudio2MasteringVoice *pMasterVoice;
-        if (FAILED(pXAudio2->CreateMasteringVoice(&pMasterVoice))) {
-            SysError(NULL);
-        }
-    }
+    SoundDevice();
 
     void load_sound(LPCWSTR path, Sound& sound);
+
+	void play_once(const Sound& sound) const {
+		for (unsigned int i = 0; i < SOUND_SOURCE_COUNT; i++) {
+			IXAudio2SourceVoice* pSourceVoice = source_voice_pool[i];
+			XAUDIO2_VOICE_STATE vs;
+			pSourceVoice->GetState(&vs, XAUDIO2_VOICE_NOSAMPLESPLAYED);
+			if (vs.BuffersQueued == 0) {
+				if (FAILED(pSourceVoice->SubmitSourceBuffer(&sound.buffer))) {
+					SysError(L"没能上传声音");
+				}
+				goto SUCCESS;
+			}
+		}
+		debug_log("Fail to play sound!!!");
+
+	SUCCESS:
+		return;
+	}
 };
