@@ -2,7 +2,17 @@
 #include <xaudio2.h>
 #include <winrt/base.h>
 #include "Error.h"
-#include "Sound.h"
+
+class Sound
+{
+	friend class SoundLoader;
+	friend class SoundDevice;
+private:
+	XAUDIO2_BUFFER buffer = { 0 };
+	std::unique_ptr <BYTE[]> sound_buffer;
+public:
+
+};
 
 #define SOUND_SOURCE_COUNT 32
 
@@ -14,23 +24,5 @@ public:
 
     SoundDevice();
 
-    void load_sound(LPCWSTR path, Sound& sound);
-
-	void play_once(const Sound& sound) const {
-		for (unsigned int i = 0; i < SOUND_SOURCE_COUNT; i++) {
-			IXAudio2SourceVoice* pSourceVoice = source_voice_pool[i];
-			XAUDIO2_VOICE_STATE vs;
-			pSourceVoice->GetState(&vs, XAUDIO2_VOICE_NOSAMPLESPLAYED);
-			if (vs.BuffersQueued == 0) {
-				if (FAILED(pSourceVoice->SubmitSourceBuffer(&sound.buffer))) {
-					SysError(L"没能上传声音");
-				}
-				goto SUCCESS;
-			}
-		}
-		debug_log("Fail to play sound!!!");
-
-	SUCCESS:
-		return;
-	}
+    void play_once(const Sound& sound) const;
 };

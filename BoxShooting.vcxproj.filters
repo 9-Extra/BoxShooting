@@ -25,9 +25,6 @@
     <Filter Include="源文件\Graphics">
       <UniqueIdentifier>{2f3eef50-fedd-44af-93b0-074cd4f04d3e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Game\Content">
-      <UniqueIdentifier>{de457936-bcec-4ae8-b9e8-06a1f606c167}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\Game\System">
       <UniqueIdentifier>{f407c566-017c-4d2e-a32e-1dfa78f34b92}</UniqueIdentifier>
     </Filter>
@@ -90,6 +87,9 @@
     <ClCompile Include="SoundDevice.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SoundLoader.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winapi.h">
@@ -112,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>头文件\Game\Content</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>头文件\Game</Filter>
@@ -158,11 +155,14 @@
     <ClInclude Include="ImageLoader.h">
       <Filter>头文件\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Sound.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
     <ClInclude Include="SoundDevice.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundLoader.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceTable.h">
+      <Filter>头文件\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

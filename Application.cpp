@@ -1,12 +1,13 @@
 #include "Application.h"
 
 void Application::load_resources() {
+	SoundLoader loader(resources);
+	loader.load_sound(L"resources\\sound\\shooting.wav", RES_SOUND::SHOOTING);
+	loader.load_sound(L"resources\\sound\\enemy_dead.wav", RES_SOUND::DEAD_AAAAA);
 
-	sound_device.load_sound(L"resources\\sound\\shooting.wav", resources.sounds[0]);
-	sound_device.load_sound(L"resources\\sound\\enemy_dead.wav", resources.sounds[1]);
-
-	ImageLoader image_loader;
-	image_loader.load_image(L"resources\\texture\\cursor.png", resources.textures[0]);
+	ImageLoader image_loader(resources);
+	image_loader.load_image(L"resources\\texture\\cursor.png", RES_TEXTURE::CURSOR);
+	image_loader.load_image(L"resources\\texture\\tom.bmp", RES_TEXTURE::CAT_TOM);
 
 }
 

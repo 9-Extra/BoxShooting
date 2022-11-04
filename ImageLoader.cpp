@@ -1,6 +1,7 @@
 #include "ImageLoader.h"
 
-ImageLoader::ImageLoader()
+ImageLoader::ImageLoader(ResourceManager& mng)
+	:mng(mng)
 {
 	HRESULT hr = CoCreateInstance(
 		CLSID_WICImagingFactory,
@@ -13,8 +14,9 @@ ImageLoader::ImageLoader()
 	}
 }
 
-void ImageLoader::load_image(LPCWSTR path, Texture& texture) {
+void ImageLoader::load_image(LPCWSTR path, const RES_TEXTURE texture_id) {
 	HRESULT hr;
+	Texture& texture = mng.textures[static_cast<unsigned int>(texture_id)];
 
 	winrt::com_ptr<IWICBitmapDecoder> pDecoder;
 	hr = pFactory->CreateDecoderFromFilename(path, NULL, GENERIC_READ, WICDecodeMetadataCacheOnLoad, pDecoder.put());

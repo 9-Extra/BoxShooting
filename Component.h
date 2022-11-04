@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CGmath.h"
+#include "ResourceTable.h"
 
 /*
 使用ECS架构
@@ -108,7 +109,7 @@ struct RenderDesc {
 			Color color;
 		} line;
 		struct {
-			unsigned int texture_id;
+			RES_TEXTURE texture_id;
 		} textured_box;
 	};
 
@@ -123,7 +124,7 @@ struct RenderDesc {
 		return rd;
 	};
 
-	static RenderDesc Textured_box(unsigned int id) {
+	static RenderDesc Textured_box(RES_TEXTURE id) {
 		RenderDesc rd;
 
 		rd.type = RenderType::TEXTURED_BOX;

@@ -17,7 +17,7 @@ Game::Game(const Devices devices, const ResourceManager& resources)
 	world.entites[id].components = CpntPosition::mask() | CpntPlayer::mask() | CpntCooldown::mask() | CpntRender::mask();
 
 	id = ENTITY_ID_CURSOR;
-	world.cpnt_render[id].data = RenderDesc::Textured_box(0);
+	world.cpnt_render[id].data = RenderDesc::Textured_box(RES_TEXTURE::CURSOR);
 	world.entites[id].components = CpntRender::mask();
 };
 

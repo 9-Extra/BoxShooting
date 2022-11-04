@@ -1,6 +1,7 @@
 #pragma once
-#include "Sound.h"
+#include "SoundDevice.h"
 #include "Graphics.h"
+#include "ResourceTable.h"
 
 /*
 * 鉴于使用的资源都是固定的，即运行中每个对象要使用的资源不需要动态指定
@@ -15,4 +16,11 @@ struct ResourceManager {
 	Texture textures[RES_TEXTURE_MAX];
 	Sound sounds[RES_SOUND_MAX];
 
+	const Texture& get_texture(RES_TEXTURE id) const {
+		return textures[static_cast<unsigned int>(id)];
+	}
+
+	const Sound& get_sound(RES_SOUND id) const{
+		return sounds[static_cast<unsigned int>(id)];
+	}
 };

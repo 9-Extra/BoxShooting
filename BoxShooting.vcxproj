@@ -182,7 +182,9 @@
     <ClCompile Include="MovingSystem.cpp" />
     <ClCompile Include="PlayerOperation.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClInclude Include="ResourceTable.h" />
     <ClCompile Include="SoundDevice.cpp" />
+    <ClCompile Include="SoundLoader.cpp" />
     <ClCompile Include="StorySystem.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -200,12 +202,11 @@
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MovingSystem.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerOperation.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundDevice.h" />
+    <ClInclude Include="SoundLoader.h" />
     <ClInclude Include="StorySystem.h" />
     <ClInclude Include="SystemContext.h" />
     <ClInclude Include="winapi.h" />

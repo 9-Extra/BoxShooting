@@ -1,5 +1,6 @@
 #pragma once
 #include "ImageLoader.h"
+#include "SoundLoader.h"
 #include "Display.h"
 
 #include "CGmath.h"
