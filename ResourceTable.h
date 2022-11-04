@@ -6,6 +6,7 @@ enum class RES_TEXTURE : unsigned int {
 	MOUSE_JERRY,
 	DUCK,
 	DOG,
+	BULLET
 };
 
 enum class RES_SOUND : unsigned int {

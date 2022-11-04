@@ -15,7 +15,8 @@ struct Entity {
 
 struct WorldGlobalState {
 	std::default_random_engine random_engine;
-	float enemy_generate_cooldown = 1000.0f;
+	float mouse_generate_cooldown = 1000.0f;
+	float duck_generate_cooldown = 1000.0f;
 
 };
 

@@ -37,6 +37,9 @@
     <Filter Include="源文件\Tools">
       <UniqueIdentifier>{7fb8fe32-f215-45fd-8e20-1fa228886ef3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Game\Content">
+      <UniqueIdentifier>{3aecfc0f-5f3d-4fbe-9f8c-e16e50127dce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="ResourceTable.h">
       <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>头文件\Game\Content</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

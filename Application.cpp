@@ -1,6 +1,7 @@
 #include "Application.h"
 
 void Application::load_resources() {
+	debug_log("Start loading");
 	SoundLoader loader(resources);
 	loader.load_sound(L"resources\\sound\\shooting.wav", RES_SOUND::SHOOTING);
 	loader.load_sound(L"resources\\sound\\enemy_dead.wav", RES_SOUND::DEAD_AAAAA);
@@ -8,7 +9,11 @@ void Application::load_resources() {
 	ImageLoader image_loader(resources);
 	image_loader.load_image(L"resources\\texture\\cursor.png", RES_TEXTURE::CURSOR);
 	image_loader.load_image(L"resources\\texture\\tom.bmp", RES_TEXTURE::CAT_TOM);
-
+	image_loader.load_image(L"resources\\texture\\duck.jpg", RES_TEXTURE::DUCK);
+	image_loader.load_image(L"resources\\texture\\jerry.bmp", RES_TEXTURE::MOUSE_JERRY);
+	image_loader.load_image(L"resources\\texture\\dog.bmp", RES_TEXTURE::DOG);
+	image_loader.load_image(L"resources\\texture\\bullet.png", RES_TEXTURE::BULLET);
+	debug_log("Loading compelete");
 }
 
 Application::Application()
@@ -40,7 +45,7 @@ int Application::run() {
 
 void Application::doFrame() {
 
-	graphics.clear(Color(0, 0, 0));
+	graphics.clear(Color(255, 255, 255));
 
 	game->tick(reset_timer());
 

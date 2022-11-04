@@ -6,15 +6,18 @@
 #include "MovingSystem.h"
 #include "CollisionSystem.h"
 #include "StorySystem.h"
+#include "Utils.h"
 
 Game::Game(const Devices devices, const ResourceManager& resources)
 	:context({ devices, resources, 0.0 })
 {
 	unsigned int id = ENTITY_ID_PLAYER;
 	world.cpnt_position[id].data = { 0.5, 0.5 };
-	world.cpnt_render[id].data = RenderDesc::Box(30, 30, Color(255, 255, 255));
+	world.cpnt_render[id].data = RenderDesc::Textured_box(RES_TEXTURE::CAT_TOM);
+	Vector2f img_size = texture_size_to_map(context.resources, RES_TEXTURE::CAT_TOM);
+	world.cpnt_collision[id].data = CollisionDesc::Box(img_size.x * 0.5f, img_size.y * 0.5f, 0, 1);
 	world.cpnt_cooldown[id].data = 0.0;
-	world.entites[id].components = CpntPosition::mask() | CpntPlayer::mask() | CpntCooldown::mask() | CpntRender::mask();
+	world.entites[id].components = CpntPosition::mask() | CpntPlayer::mask() | CpntCooldown::mask() | CpntRender::mask() | CpntCollision::mask();
 
 	id = ENTITY_ID_CURSOR;
 	world.cpnt_render[id].data = RenderDesc::Textured_box(RES_TEXTURE::CURSOR);

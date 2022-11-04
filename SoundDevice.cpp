@@ -54,7 +54,7 @@ void SoundDevice::play_once(const Sound& sound) const {
             goto SUCCESS;
         }
     }
-    debug_log("Fail to play sound!!!");
+    debug_log("Fail to play sound!!!\n");
 
 SUCCESS:
     return;

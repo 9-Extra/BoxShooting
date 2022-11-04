@@ -8,8 +8,8 @@
 class InputHandler {
 private:
 	Vector2f mouse_position;
-	bool mouse_lb = false;
-	bool mouse_rb = false;
+	bool mouse_lb;
+	bool mouse_rb;
 	bool keyboard[KEYCODE_MAX];
 
 	friend LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);

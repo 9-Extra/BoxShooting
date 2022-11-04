@@ -11,7 +11,7 @@ void sys_player_operation(World& world, const SystemContext& context) {
 	if (mask_contain(world.entites[i].components, PLAYER_MASK)) {
 		//debug_log("Time past: %f ms\n", dt);
 		Vector2f& p = world.cpnt_position[i].data;
-		const float speed = 0.01f;
+		const float speed = 0.005f;
 		//box.p = sys_input.get_mouse_position();
 		if (sys_input.is_keydown('W')) {
 			p.y -= speed * dt;
@@ -32,8 +32,6 @@ void sys_player_operation(World& world, const SystemContext& context) {
 		p.y = std::min<float>(WINDOW_HEIGHT * MAP_RATIO, p.y);
 
 		//debug_log("Box pos: (%f, %f)\n", p.x, p.y);
-
-
 		const float bullet_speed = 0.03f;
 
 		static float shooting_delay = 200.0f;
@@ -44,14 +42,14 @@ void sys_player_operation(World& world, const SystemContext& context) {
 				world.cpnt_position[id].data = p;
 				Vector2f speed = (sys_input.get_mouse_position() - p).normalized() * bullet_speed;
 				world.cpnt_moving[id].data = speed;
-				world.cpnt_render[id].data = RenderDesc::Box(5, 5, Color(255, 0, 0));
-				world.cpnt_collision[id].data = CollisionDesc::Box(5 * MAP_RATIO / 2, 5 * MAP_RATIO / 2, 0, 1);
+				world.cpnt_render[id].data = RenderDesc::Textured_box(RES_TEXTURE::BULLET);
+				world.cpnt_collision[id].data = CollisionDesc::Box(30 * MAP_RATIO / 2, 30 * MAP_RATIO / 2, 0, 1);
 
 				world.entites[id].components = CpntPosition::mask() | CpntMoving::mask() | CpntCollision::mask() | CpntRender::mask();
 
 				context.devices.sound_device.play_once(context.resources.sounds[0]);
 
-				shooting_cooldown = 500.0;
+				shooting_cooldown = 100.0;
 			}
 			else {
 				shooting_delay -= dt;

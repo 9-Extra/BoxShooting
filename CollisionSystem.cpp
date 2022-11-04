@@ -20,8 +20,18 @@ void sys_collision(World& world, const SystemContext& context) {
 								std::abs(p_a.y - p_b.y) < (c_a.box_size.half_height + c_b.box_size.half_height)
 								) 
 							{
-								world.destroy_entity(i);
-								world.destroy_entity(j);
+								unsigned int a, b;
+								if (c_a.collision_mask & c_b.group_mask) {
+									a = i; b = j;
+								}
+								else {
+									a = j; b = i;
+								}
+								//保证是a对b进行碰撞
+								if (a != ENTITY_ID_PLAYER) {
+									world.destroy_entity(a);
+								}
+								world.destroy_entity(b);
 								context.devices.sound_device.play_once(context.resources.sounds[1]);
 							}
 						}
