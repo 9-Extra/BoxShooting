@@ -1,7 +1,7 @@
 #include "Application.h"
 
 void Application::load_resources() {
-	debug_log("Start loading");
+	debug_log("Start loading\n");
 	SoundLoader loader(resources);
 	loader.load_sound(L"resources\\sound\\shooting.wav", RES_SOUND::SHOOTING);
 	loader.load_sound(L"resources\\sound\\enemy_dead.wav", RES_SOUND::DEAD_AAAAA);
@@ -13,7 +13,7 @@ void Application::load_resources() {
 	image_loader.load_image(L"resources\\texture\\jerry.bmp", RES_TEXTURE::MOUSE_JERRY);
 	image_loader.load_image(L"resources\\texture\\dog.bmp", RES_TEXTURE::DOG);
 	image_loader.load_image(L"resources\\texture\\bullet.png", RES_TEXTURE::BULLET);
-	debug_log("Loading compelete");
+	debug_log("Loading compelete\n");
 }
 
 Application::Application()
