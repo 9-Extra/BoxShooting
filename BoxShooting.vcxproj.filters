@@ -19,12 +19,6 @@
     <Filter Include="源文件\Game">
       <UniqueIdentifier>{bd163dc5-aa98-43df-8eb8-2acb88879a2e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Graphics">
-      <UniqueIdentifier>{6ee0dc85-37d1-46d4-80b5-f968593706ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Graphics">
-      <UniqueIdentifier>{2f3eef50-fedd-44af-93b0-074cd4f04d3e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\Game\System">
       <UniqueIdentifier>{f407c566-017c-4d2e-a32e-1dfa78f34b92}</UniqueIdentifier>
     </Filter>
@@ -40,6 +34,12 @@
     <Filter Include="头文件\Game\Content">
       <UniqueIdentifier>{3aecfc0f-5f3d-4fbe-9f8c-e16e50127dce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Device">
+      <UniqueIdentifier>{9c27ec61-0b4d-4560-b5f7-77c425a2c8b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Device">
+      <UniqueIdentifier>{316c8bab-ae39-4eb1-bc6e-4871669ca23b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -49,12 +49,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>源文件\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="InputHandler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -87,11 +81,20 @@
     <ClCompile Include="ImageLoader.cpp">
       <Filter>源文件\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="SoundDevice.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SoundLoader.cpp">
       <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>源文件\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundDevice.cpp">
+      <Filter>源文件\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>源文件\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="FontEngine.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,12 +106,6 @@
     </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CGmath.h">
-      <Filter>头文件\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>头文件\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="GameDesc.h">
       <Filter>头文件\Game</Filter>
@@ -128,13 +125,7 @@
     <ClInclude Include="RenderSystem.h">
       <Filter>头文件\Game\System</Filter>
     </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Devices.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="SystemContext.h">
@@ -158,9 +149,6 @@
     <ClInclude Include="ImageLoader.h">
       <Filter>头文件\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="SoundDevice.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SoundLoader.h">
       <Filter>头文件\Tools</Filter>
     </ClInclude>
@@ -169,6 +157,24 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>头文件\Game\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>头文件\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="CGmath.h">
+      <Filter>头文件\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>头文件\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundDevice.h">
+      <Filter>头文件\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Devices.h">
+      <Filter>头文件\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="FontEngine.h">
+      <Filter>头文件\Device</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

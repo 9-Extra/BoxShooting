@@ -83,5 +83,14 @@ struct Color {
 	};
 	Color() {}
 	Color(unsigned char r, unsigned char g, unsigned char b, unsigned char a = 255) : r(r), g(g), b(b), a(a) {}
+
+	Color blend(Color c) {
+		unsigned char gray = c.a;
+		return Color(
+			r * (255 - gray) / 255 + c.r * gray / 255,
+			g * (255 - gray) / 255 + c.g * gray / 255,
+			b * (255 - gray) / 255 + c.b * gray / 255
+		);
+	}
 };
 #pragma pack(pop)

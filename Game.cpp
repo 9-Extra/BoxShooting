@@ -38,5 +38,7 @@ void Game::tick(float dt) {
 	sys_render_the_world(world, context);
 	sys_render_cursor(world, context);
 
+	context.devices.grahics.draw_text_upleft(5, 5, Color(255, 0, 0), L"AABBCC");
+
 	world.really_destory_entities();
 }

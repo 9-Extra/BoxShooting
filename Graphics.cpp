@@ -30,7 +30,37 @@ void Graphcis::draw_texture_upleft(Vector2f p, const Texture& texture) {
 	int left = (int)(p.x / MAP_RATIO);
 	int up = (int)(p.y / MAP_RATIO);
 
+	//todo
+}
 
+void Graphcis::draw_text_upleft(int up, int left, Color color,const wchar_t* str) {
+	int pen_x = up;
+	int pen_y = left;
+	for (const wchar_t* c = str; *c != L'\0'; c++) {
+		FT_GlyphSlot slot = font_engine.load_char(*c);
+		unsigned int width = slot->bitmap.width;
+		unsigned int height = slot->bitmap.rows;
+		
+		for (unsigned int y = 0; y < height; y++) {
+			for (unsigned int x = 0; x < width; x++) {
+				int tar_x = pen_x + x;
+				int tar_y = pen_y + y;
+				if (tar_x >= 0 && tar_x < WINDOW_WIDTH && tar_y >= 0 && tar_y < WINDOW_HEIGHT) {
+					unsigned char gray = slot->bitmap.buffer[y * width + x];
+					if (gray > 0) {
+						Color& ori = panel[tar_y * WINDOW_WIDTH + tar_x];
+						color.a = gray;
+						ori = ori.blend(color);
+					}
+				}
+
+			}
+		}
+		
+		pen_x += slot->advance.x / 64;
+		pen_y += slot->advance.y;
+
+	}
 }
 
 void Graphcis::draw_texture_center(Vector2f p, const Texture& texture) {
