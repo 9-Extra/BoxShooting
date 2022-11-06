@@ -94,7 +94,7 @@
       <Filter>源文件\Device</Filter>
     </ClCompile>
     <ClCompile Include="FontEngine.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

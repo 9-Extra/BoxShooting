@@ -18,6 +18,8 @@ struct WorldGlobalState {
 	float mouse_generate_cooldown = 1000.0f;
 	float duck_generate_cooldown = 1000.0f;
 
+	unsigned int player_scord = 0;
+
 };
 
 //记录所有的状态，只保存数据

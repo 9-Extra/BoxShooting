@@ -32,6 +32,13 @@ void sys_collision(World& world, const SystemContext& context) {
 									world.destroy_entity(a);
 								}
 								world.destroy_entity(b);
+								RES_TEXTURE id = world.cpnt_render[b].data.textured_box.texture_id;
+								if (id == RES_TEXTURE::MOUSE_JERRY) {
+									world.state.player_scord += 1;
+								}
+								else if (id == RES_TEXTURE::DUCK) {
+									world.state.player_scord += 5;
+								}
 								context.devices.sound_device.play_once(context.resources.sounds[1]);
 							}
 						}

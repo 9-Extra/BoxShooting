@@ -8,6 +8,13 @@
 #include "StorySystem.h"
 #include "Utils.h"
 
+void Game::render_hub(World& world, const SystemContext& context)
+{
+	static wchar_t buffer[128];
+	wsprintfW(buffer, L"%u", world.state.player_scord);
+	context.devices.grahics.draw_text_upleft(5, 5, Color(255, 0, 0), buffer); 
+}
+
 Game::Game(const Devices devices, const ResourceManager& resources)
 	:context({ devices, resources, 0.0 })
 {
@@ -38,7 +45,7 @@ void Game::tick(float dt) {
 	sys_render_the_world(world, context);
 	sys_render_cursor(world, context);
 
-	context.devices.grahics.draw_text_upleft(5, 5, Color(255, 0, 0), L"AABBCC");
+	render_hub(world, context);
 
 	world.really_destory_entities();
 }

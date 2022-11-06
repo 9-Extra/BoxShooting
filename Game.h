@@ -16,6 +16,7 @@ private:
 	World world;
 	SystemContext context;
 
+	void render_hub(World& world, const SystemContext& context);
 public:
 
 	Game(const Devices devices, const ResourceManager& resources);
