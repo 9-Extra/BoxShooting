@@ -2,6 +2,7 @@
 
 #include "CGmath.h"
 #include "ResourceTable.h"
+#include <concepts>
 
 /*
 使用ECS架构
@@ -26,21 +27,32 @@ inline bool mask_contain(ComponentBitMask a, ComponentBitMask b) {
 	return (a & b) == b;
 }
 
+class _Component abstract{
+public:
+	//interface
+	consteval static ComponentBitMask mask() {
+		return EMPTY_MASK;
+	}
+};
+
 template <typename T, unsigned int ID>
-class Component{
+class Component : _Component {
 	static_assert(ID < sizeof(ComponentBitMask) * 8, "ID too big!");
 	friend class World;
 public:
-	T data;
+	using DataType = T;
 
-	constexpr static unsigned int id() {
-		return ID;
-	}
+	DataType data;
 
-	constexpr static ComponentBitMask mask() {
+	consteval static ComponentBitMask mask() {
 		return (ComponentBitMask)1 << ID;
 	}
 };
+
+template<typename C>
+concept ComponentType = std::is_base_of<_Component, C>::value;
+
+//这里开始定义所有的Component
 
 using CpntPosition = Component<Vector2f, 0>;
 using CpntMoving = Component<Vector2f, 1>;
@@ -134,6 +146,8 @@ struct RenderDesc {
 	};
 };
 using CpntRender = Component<RenderDesc, 5>;
-using CpntPlayer = Component<void*, 6>;
+class World;
+using AIfunc = void(*) (World&, unsigned int);
+using CpntAI = Component<AIfunc, 6>;
 using CpntDestroying = Component<void*, 7>;
 

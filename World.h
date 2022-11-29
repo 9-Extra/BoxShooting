@@ -47,6 +47,7 @@ public:
 	CpntCooldown cpnt_cooldown[ENTITY_MAX_COUNT];
 	CpntMoving cpnt_moving[ENTITY_MAX_COUNT];
 	CpntCollision cpnt_collision[ENTITY_MAX_COUNT];
+	CpntAI cpnt_ai[ENTITY_MAX_COUNT];
 
 	World();
 

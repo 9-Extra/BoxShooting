@@ -40,6 +40,9 @@
     <Filter Include="源文件\Device">
       <UniqueIdentifier>{316c8bab-ae39-4eb1-bc6e-4871669ca23b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Game\GameObject">
+      <UniqueIdentifier>{2a2d9302-c44d-410d-bc78-f86b9adc4a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="FontEngine.cpp">
       <Filter>源文件\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="AISystem.cpp">
+      <Filter>源文件\Game\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +181,18 @@
     </ClInclude>
     <ClInclude Include="FontEngine.h">
       <Filter>头文件\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>头文件\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GoDuck.h">
+      <Filter>头文件\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GoMouse.h">
+      <Filter>头文件\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AISystem.h">
+      <Filter>头文件\Game\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

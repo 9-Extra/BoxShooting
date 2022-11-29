@@ -177,6 +177,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AISystem.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="CooldownSystem.cpp" />
@@ -191,7 +192,11 @@
     <ClCompile Include="MovingSystem.cpp" />
     <ClCompile Include="PlayerOperation.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClInclude Include="AISystem.h" />
     <ClInclude Include="FontEngine.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GoDuck.h" />
+    <ClInclude Include="GoMouse.h" />
     <ClInclude Include="ResourceTable.h" />
     <ClCompile Include="SoundDevice.cpp" />
     <ClCompile Include="SoundLoader.cpp" />

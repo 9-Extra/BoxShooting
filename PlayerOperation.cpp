@@ -1,6 +1,6 @@
 #include "PlayerOperation.h"
 
-static const ComponentBitMask PLAYER_MASK = CpntPosition::mask() | CpntPlayer::mask();
+static const ComponentBitMask PLAYER_MASK = CpntPosition::mask();
 
 void sys_player_operation(World& world, const SystemContext& context) {
 	const InputHandler& sys_input = context.devices.input_handler;

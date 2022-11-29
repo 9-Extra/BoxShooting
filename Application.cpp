@@ -13,7 +13,7 @@ void Application::load_resources() {
 	image_loader.load_image(L"resources\\texture\\jerry.bmp", RES_TEXTURE::MOUSE_JERRY);
 	image_loader.load_image(L"resources\\texture\\dog.bmp", RES_TEXTURE::DOG);
 	image_loader.load_image(L"resources\\texture\\bullet.png", RES_TEXTURE::BULLET);
-	debug_log("Loading compelete\n");
+	debug_log("Loading compeleted\n");
 }
 
 Application::Application()
