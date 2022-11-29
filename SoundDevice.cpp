@@ -43,7 +43,9 @@ SoundDevice::SoundDevice() {
 }
 
 void SoundDevice::play_once(const Sound& sound) const {
-    for (unsigned int i = 0; i < SOUND_SOURCE_COUNT; i++) {
+    static unsigned int last = 0;
+
+    for (unsigned int i = last; i < SOUND_SOURCE_COUNT; i++) {
         IXAudio2SourceVoice* pSourceVoice = source_voice_pool[i];
         XAUDIO2_VOICE_STATE vs;
         pSourceVoice->GetState(&vs, XAUDIO2_VOICE_NOSAMPLESPLAYED);
@@ -51,9 +53,24 @@ void SoundDevice::play_once(const Sound& sound) const {
             if (FAILED(pSourceVoice->SubmitSourceBuffer(&sound.buffer))) {
                 SysError(L"没能上传声音");
             }
+            last = i + 1;
             goto SUCCESS;
         }
     }
+
+    for (unsigned int i = 0; i < last; i++) {
+        IXAudio2SourceVoice* pSourceVoice = source_voice_pool[i];
+        XAUDIO2_VOICE_STATE vs;
+        pSourceVoice->GetState(&vs, XAUDIO2_VOICE_NOSAMPLESPLAYED);
+        if (vs.BuffersQueued == 0) {
+            if (FAILED(pSourceVoice->SubmitSourceBuffer(&sound.buffer))) {
+                SysError(L"没能上传声音");
+            }
+            last = i + 1;
+            goto SUCCESS;
+        }
+    }
+
     debug_log("Fail to play sound!!!\n");
 
 SUCCESS:
