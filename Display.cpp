@@ -7,7 +7,7 @@
 
 static const DWORD WINDOW_STYLE = WS_CAPTION | WS_SYSMENU;
 
-static LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam) {
+static LRESULT CALLBACK WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam) {
 	switch (Msg)
 	{
 	case WM_LBUTTONDOWN:

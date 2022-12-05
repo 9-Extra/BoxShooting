@@ -194,5 +194,11 @@
     <ClInclude Include="AISystem.h">
       <Filter>头文件\Game\System</Filter>
     </ClInclude>
+    <ClInclude Include="GoBullet.h">
+      <Filter>头文件\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GoCat.h">
+      <Filter>头文件\Game\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

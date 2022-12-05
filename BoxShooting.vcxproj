@@ -195,6 +195,8 @@
     <ClInclude Include="AISystem.h" />
     <ClInclude Include="FontEngine.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GoBullet.h" />
+    <ClInclude Include="GoCat.h" />
     <ClInclude Include="GoDuck.h" />
     <ClInclude Include="GoMouse.h" />
     <ClInclude Include="ResourceTable.h" />

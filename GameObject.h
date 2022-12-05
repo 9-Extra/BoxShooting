@@ -82,7 +82,7 @@ public:
 			return world.cpnt_ai[id].data;
 		}
 		else if constexpr (std::is_same<C, CpntDestroying>::value) {
-			GameError(L"组件不存在对象");
+			GameError(L"组件没有数据");
 		}
 	}
 

@@ -12,7 +12,7 @@ private:
 	bool mouse_rb;
 	bool keyboard[KEYCODE_MAX];
 
-	friend LRESULT WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+	friend LRESULT CALLBACK WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 
 	void clear_keyboard_state() {
 		for (unsigned int i = 0; i < KEYCODE_MAX; i++) {
