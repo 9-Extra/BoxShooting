@@ -136,7 +136,7 @@ struct RenderDesc {
 		return rd;
 	};
 
-	static RenderDesc Textured_box(RES_TEXTURE id) {
+	static RenderDesc TexturedBox(RES_TEXTURE id) {
 		RenderDesc rd;
 
 		rd.type = RenderType::TEXTURED_BOX;

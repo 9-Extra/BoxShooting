@@ -1,17 +1,19 @@
 #include "PlayerOperation.h"
 #include "GoBullet.h"
 
+#include "GoCat.h"
+
 static const ComponentBitMask PLAYER_MASK = CpntPosition::mask();
 
 void sys_player_operation(World& world, const SystemContext& context) {
 	const InputHandler& sys_input = context.devices.input_handler;
 	float dt = context.dt;
 
-	unsigned int i = ENTITY_ID_PLAYER;
+	GoCat cat(world);
 
-	if (mask_contain(world.entites[i].components, PLAYER_MASK)) {
+	if (mask_contain(cat.actual_components_mask(), PLAYER_MASK)) {
 		//debug_log("Time past: %f ms\n", dt);
-		Vector2f& p = world.cpnt_position[i].data;
+		Vector2f& p = cat.component_data<CpntPosition>();
 		const float speed = 0.005f;
 		//box.p = sys_input.get_mouse_position();
 		if (sys_input.is_keydown('W')) {
@@ -34,7 +36,7 @@ void sys_player_operation(World& world, const SystemContext& context) {
 
 		//debug_log("Box pos: (%f, %f)\n", p.x, p.y);
 		static float shooting_delay = 200.0f;
-		float& shooting_cooldown = world.cpnt_cooldown[i].data;
+		float& shooting_cooldown = cat.component_data<CpntCooldown>();
 		if (sys_input.is_left_button_down() && shooting_cooldown < 0.0f) {
 			if (shooting_delay < 0.0f) {
 				GoBullet bullet(world, world.assign_entity_id());

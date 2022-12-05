@@ -14,7 +14,7 @@ public:
 
 		component_data<CpntPosition>() = cat_pos;
 		component_data<CpntMoving>() = speed;
-		component_data<CpntRender>() = RenderDesc::Textured_box(RES_TEXTURE::BULLET);
+		component_data<CpntRender>() = RenderDesc::TexturedBox(RES_TEXTURE::BULLET);
 		component_data<CpntCollision>() = CollisionDesc::Box(30 * MAP_RATIO / 2, 30 * MAP_RATIO / 2, 0, 1);
 
 		GameObject::create();

@@ -25,7 +25,7 @@ Game::Game(const Devices devices, const ResourceManager& resources)
 	cat.create(context);
 
 	unsigned id = ENTITY_ID_CURSOR;
-	world.cpnt_render[id].data = RenderDesc::Textured_box(RES_TEXTURE::CURSOR);
+	world.cpnt_render[id].data = RenderDesc::TexturedBox(RES_TEXTURE::CURSOR);
 	world.entites[id].components = CpntRender::mask();
 };
 

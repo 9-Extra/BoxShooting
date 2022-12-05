@@ -45,6 +45,10 @@ public:
 		actual_components_mask() = basic_components_mask();
 	}
 
+	void kill() {
+		world.destroy_entity(id);
+	}
+
 	bool is_exist() {
 		return actual_components_mask() != EMPTY_MASK;
 	}

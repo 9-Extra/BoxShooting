@@ -7,8 +7,8 @@
 void sys_enemy_generate(World& world, const SystemContext& context) {
 	std::uniform_real_distribution<float> angle_sampler(-3.14f, 3.14f);
 	std::uniform_real_distribution<float> speed_sampler(0.5f, 2.0f);
-	std::uniform_real_distribution<float> x_sampler(0.0f, 10.0f);
-	std::uniform_real_distribution<float> y_sampler(0.0f, 10.0f);
+	std::uniform_real_distribution<float> x_sampler(0.0f, WINDOW_WIDTH * MAP_RATIO);
+	std::uniform_real_distribution<float> y_sampler(0.0f, WINDOW_HEIGHT * MAP_RATIO);
 	std::default_random_engine& e = world.state.random_engine;
 
 	world.state.mouse_generate_cooldown -= context.dt;
