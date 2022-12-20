@@ -227,7 +227,6 @@
     <ClInclude Include="StorySystem.h" />
     <ClInclude Include="SystemContext.h" />
     <ClInclude Include="Utils.h" />
-    <ClInclude Include="winapi.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

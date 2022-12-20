@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "winapi.h"
+#include <Windows.h>
 #include "Error.h"
 
 #ifdef NDEBUG

@@ -104,9 +104,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="winapi.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Error.h">
       <Filter>头文件</Filter>
     </ClInclude>

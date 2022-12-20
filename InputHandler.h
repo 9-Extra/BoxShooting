@@ -1,7 +1,7 @@
 #pragma once
 #include "CGmath.h"
 #include <assert.h>
-#include "winapi.h"
+#include <Windows.h>
 
 #define KEYCODE_MAX 0xff
 
