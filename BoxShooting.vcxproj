@@ -104,7 +104,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;freetyped.lib</AdditionalDependencies>
+      <AdditionalDependencies>onecore.lib;DXGI.lib;D3D12.lib;User32.lib;Ole32.lib;freetyped.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -128,7 +128,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;freetype.lib</AdditionalDependencies>
+      <AdditionalDependencies>onecore.lib;DXGI.lib;D3D12.lib;User32.lib;Ole32.lib;freetype.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -148,7 +148,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;freetyped.lib</AdditionalDependencies>
+      <AdditionalDependencies>onecore.lib;DXGI.lib;D3D12.lib;User32.lib;Ole32.lib;freetyped.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -172,7 +172,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>D3D11.lib;User32.lib;Ole32.lib;freetype.lib</AdditionalDependencies>
+      <AdditionalDependencies>onecore.lib;DXGI.lib;D3D12.lib;User32.lib;Ole32.lib;freetype.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
