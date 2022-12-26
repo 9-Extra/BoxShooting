@@ -27,6 +27,11 @@ Game::Game(const Devices devices, const ResourceManager& resources)
 	unsigned id = ENTITY_ID_CURSOR;
 	world.cpnt_render[id].data = RenderDesc::TexturedBox(RES_TEXTURE::CURSOR);
 	world.entites[id].components = CpntRender::mask();
+
+	id = world.assign_entity_id();
+	world.cpnt_position[id].data = { 50.0f, 50.0f };
+	world.cpnt_render[id].data = RenderDesc::Model(1u);
+	world.entites[id].components = CpntPosition::mask() | CpntRender::mask();
 };
 
 void Game::tick(float dt) {

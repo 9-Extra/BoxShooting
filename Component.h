@@ -101,7 +101,8 @@ enum class RenderType
 	BOX,
 	LINE,
 	POINT,
-	TEXTURED_BOX
+	TEXTURED_BOX,
+	MODEL,
 };
 
 struct RenderDesc {
@@ -123,6 +124,10 @@ struct RenderDesc {
 		struct {
 			RES_TEXTURE texture_id;
 		} textured_box;
+		struct 
+		{
+			unsigned int model_id;
+		} model;
 	};
 
 	RenderDesc() {}
@@ -141,6 +146,15 @@ struct RenderDesc {
 
 		rd.type = RenderType::TEXTURED_BOX;
 		rd.textured_box.texture_id = id;
+
+		return rd;
+	};
+
+	static RenderDesc Model(unsigned int model_id) {
+		RenderDesc rd;
+
+		rd.type = RenderType::MODEL;
+		rd.model.model_id = model_id;
 
 		return rd;
 	};

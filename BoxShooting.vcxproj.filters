@@ -43,6 +43,12 @@
     <Filter Include="头文件\Game\GameObject">
       <UniqueIdentifier>{2a2d9302-c44d-410d-bc78-f86b9adc4a8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Graphics">
+      <UniqueIdentifier>{7c2696a5-600e-49fe-a8b2-c17fc0b4d4ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="着色器">
+      <UniqueIdentifier>{45007bb1-66ce-454c-96b9-aea49559a616}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -101,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>源文件\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelLoader.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,5 +206,24 @@
     <ClInclude Include="Graphics.h">
       <Filter>头文件\Device</Filter>
     </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelLoader.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\PSSingleColor.hlsl">
+      <Filter>着色器</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\VSPass.hlsl">
+      <Filter>着色器</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\GlobalDef.hlsli">
+      <Filter>着色器</Filter>
+    </None>
   </ItemGroup>
 </Project>

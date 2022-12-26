@@ -12,6 +12,10 @@ static inline void render_entity(Vector2f p, RenderDesc& rd, Graphcis& g, const 
 		g.draw_texture_center(p, mng.get_texture(rd.textured_box.texture_id));
 		break;
 	}
+	case RenderType::MODEL: {
+		mng.models[rd.model.model_id].draw(g.p_command_list.get());
+		break;
+	}
 	default: {
 		GameError(L"Unsupport RenderType");
 	}
@@ -19,6 +23,9 @@ static inline void render_entity(Vector2f p, RenderDesc& rd, Graphcis& g, const 
 }
 
 void sys_render_the_world(World & world, const SystemContext & context) {
+	context.devices.grahics.render_panel();
+	context.devices.grahics.model_render_context();
+
 	for (unsigned int i = 0; i < ENTITY_MAX_COUNT; i++) {
 		if (mask_contain(world.entites[i].components, RENDER_MASK)) {
 			Vector2f p = world.cpnt_position[i].data;
@@ -26,6 +33,8 @@ void sys_render_the_world(World & world, const SystemContext & context) {
 			render_entity(p, rd, context.devices.grahics, context.resources);
 		}
 	}
+
+	context.devices.grahics.model_render_end();
 }
 void sys_render_cursor(World& world, const SystemContext& context) {
 	unsigned int id = ENTITY_ID_CURSOR;

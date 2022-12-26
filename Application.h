@@ -1,6 +1,7 @@
 #pragma once
 #include "ImageLoader.h"
 #include "SoundLoader.h"
+#include "ModelLoader.h"
 #include "Display.h"
 
 #include "CGmath.h"
@@ -13,8 +14,6 @@
 class Application {
 	using time_point = std::chrono::time_point<std::chrono::high_resolution_clock>;
 private:
-
-	Display display;
 	Graphcis graphics;
 	SoundDevice sound_device;
 

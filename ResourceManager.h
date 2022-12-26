@@ -2,6 +2,7 @@
 #include "SoundDevice.h"
 #include "Graphics.h"
 #include "ResourceTable.h"
+#include "Model.h"
 
 /*
 * 鉴于使用的资源都是固定的，即运行中每个对象要使用的资源不需要动态指定
@@ -11,10 +12,12 @@
 */
 #define RES_TEXTURE_MAX 100
 #define RES_SOUND_MAX 100
+#define RES_MODEL_MAX 100
 
 struct ResourceManager {
 	Texture textures[RES_TEXTURE_MAX];
 	Sound sounds[RES_SOUND_MAX];
+	Model models[RES_MODEL_MAX];
 
 	const Texture& get_texture(RES_TEXTURE id) const {
 		return textures[static_cast<unsigned int>(id)];

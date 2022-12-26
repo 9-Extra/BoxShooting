@@ -14,14 +14,61 @@ void Application::load_resources() {
 	image_loader.load_image(L"resources\\texture\\dog.bmp", RES_TEXTURE::DOG);
 	image_loader.load_image(L"resources\\texture\\bullet.png", RES_TEXTURE::BULLET);
 	debug_log("Loading compeleted\n");
+
+	ModelLoader model_loader(resources, graphics);
+	const std::vector<Vertex> cube_vertices{
+		 { { -1.0f, 1.0f, -1.0f}, { 0.0f, 0.0f } },    // Back Top Left
+			{ { 1.0f, 1.0f, -1.0f}, { 0.0f, 0.0f } },    // Back Top Right
+			{ { 1.0f, 1.0f, 1.0f}, {0.0f, 0.0f } },    // Front Top Right
+			{ { -1.0f, 1.0f, 1.0f}, {0.0f, 0.0f} },    // Front Top Left
+
+			{ { -1.0f, -1.0f, -1.0f}, { 0.0f, 0.0f } },    // Back Bottom Left
+			{ { 1.0f, -1.0f, -1.0f}, { 0.0f, 0.0f } },    // Back Bottom Right
+			{ { 1.0f, -1.0f, 1.0f}, { 0.0f, 0.0f } },    // Front Bottom Right
+			{ { -1.0f, -1.0f, 1.0f}, { 0.0f, 0.0f } },    // Front Bottom Left
+	};
+
+	const std::vector<unsigned int> cube_indices
+	{
+		0, 1, 3,
+		1, 2, 3,
+
+		3, 2, 7,
+		6, 7, 2,
+
+		2, 1, 6,
+		5, 6, 1,
+
+		1, 0, 5,
+		4, 5, 0,
+
+		0, 3, 4,
+		7, 4, 3,
+
+		7, 6, 4,
+		5, 4, 6,
+	};
+	model_loader.model_from_memory(cube_vertices, cube_indices, 0u);
+
+
+	const std::vector<Vertex> triangle_vertices{
+		 { { 0.0f, 0.5f, 1.0f}, { 0.0f, 0.0f } },
+			{ { 0.5f, -0.5f, 1.0f}, { 0.0f, 0.0f } },
+			{ { -0.5f, -0.5f, 1.0f}, {0.0f, 0.0f } }
+	};
+
+	const std::vector<unsigned int> triangle_indices
+	{
+		0, 1, 2
+	};
+	model_loader.model_from_memory(triangle_vertices, triangle_indices, 1u);
+
+
 }
 
 Application::Application()
-	:graphics(),
-	display(WINDOW_WIDTH, WINDOW_HEIGHT)
+	:graphics(WINDOW_WIDTH, WINDOW_HEIGHT)
 {
-	SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_UNAWARE);
-
 	load_resources();
 
 	game = std::make_unique<Game>(Devices{ graphics, sound_device,input_handler }, resources);
@@ -49,5 +96,5 @@ void Application::doFrame() {
 
 	game->tick(reset_timer());
 
-	display.swap(graphics.panel.data());
+	graphics.swap();
 }
